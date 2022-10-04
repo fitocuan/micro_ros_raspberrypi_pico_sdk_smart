@@ -11,11 +11,16 @@ pico_sdk_init()
 link_directories(libmicroros)
 add_executable(pico_micro_ros_example
     pico_micro_ros_example.c
+    hx711.c
+    servo.c
     pico_uart_transport.c
+
 )
 target_link_libraries(pico_micro_ros_example
     pico_stdlib
     microros
+    hardware_adc
+    hardware_pwm
 )
 
 target_include_directories(pico_micro_ros_example PUBLIC
